@@ -140,7 +140,7 @@ const sampleProducts = [
 //get all products
 router.get('/', async (req, res) => {
     try {
-        const products = await Product.find();
+        let products = await Product.find();
         if (products.length === 0) {
           await Product.insertMany(sampleProducts);
           products = await Product.find(); // Fetch again after inserting
